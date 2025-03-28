@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\AuthController;
 // use App\Http\Controllers\LoanController;
 use App\Http\Controllers\DashboardController;
-// use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminController;
 // use App\Http\Controllers\ContactController;
 // use App\Http\Controllers\ProfileController;
 
@@ -68,7 +68,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 //     Route::get('/login', [AdminController::class, 'showAdminLoginForm'])->name('admin.login.form');
 //     Route::post('/login', [AdminController::class, 'adminLogin'])->name('admin.login');
 
-//     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // Daftar pengguna & pinjaman aktif
+// Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // Daftar pengguna & pinjaman aktif (INI YANG NANTI DIPAKAI KEDEPANNYA)
+Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // Daftar pengguna & pinjaman aktif
 //     Route::get('/users', [AdminController::class, 'listUsers'])->name('admin.users');
 //     Route::get('/loans', [AdminController::class, 'listLoans'])->name('admin.loans');
 // });
