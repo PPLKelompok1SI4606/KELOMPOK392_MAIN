@@ -14,80 +14,105 @@
     <h1 class="text-4xl font-bold text-sky-blue mb-10 drop-shadow-lg tracking-wide animate-fade-in">Dashboard</h1>
 
 <!-- Card MetaMask/Wallet -->
-<div class="bg-[#001125] border border-light-blue/20 rounded-xl shadow-2xl p-6 mb-10 card-hover transition-all duration-300">
-    <div class="relative bg-gradient-to-br from-[#001125] via-[#0a1b33] to-[#1a2a44] rounded-lg p-6 text-white shadow-[0_0_20px_rgba(42,157,244,0.2)] overflow-hidden">
+<div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 mb-10 card-hover transition-all duration-300 hover:shadow-lg">
+    <div class="relative bg-white rounded-lg p-6 text-gray-900 overflow-hidden">
         <!-- Header Card -->
-        <div class="flex justify-between items-center mb-4">
+        <div class="flex justify-between items-center mb-6">
             <div>
-                <h3 class="text-xl font-bold text-sky-blue tracking-wider uppercase drop-shadow-md">MetaMask Wallet</h3>
-                <p class="text-sm text-gray-400 mt-1 flex items-center">
-                    <span class="mr-2 text-light-blue"><i class="fas fa-wallet"></i></span>
-                    Saldo: <span class="font-semibold text-light-blue">0.025 ETH</span>
+                <h3 class="text-xl font-semibold text-gray-900 tracking-wide leading-relaxed">MetaMask Wallet</h3>
+                <p class="text-sm text-gray-500 mt-2 flex items-center leading-loose">
+                    <span class="mr-3 text-blue-500">
+                        <!-- Ikon Wallet dari Heroicons -->
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                        </svg>
+                    </span>
+                    Saldo: <span class="font-medium text-blue-500 ml-1">0.025 ETH</span>
                 </p>
             </div>
-            <img src="https://metamask.io/images/metamask-logo.png" alt="MetaMask Logo" class="h-12 w-auto filter drop-shadow-[0_0_8px_rgba(42,157,244,0.5)]">
+            <img src="https://metamask.io/images/metamask-logo.png" alt="MetaMask Logo" class="h-9 w-auto transition-transform hover:scale-105">
         </div>
 
         <!-- Alamat Wallet -->
-        <div class="mt-2 bg-[#0a1b33]/50 p-3 rounded-md border border-light-blue/10">
-            <p class="text-sm text-gray-300 flex items-center">
-                <span class="mr-2 text-light-blue"><i class="fas fa-address-card"></i></span>
-                Alamat: <span class="font-mono text-light-blue ml-1 truncate">0x123...abc</span>
+        <div class="mt-4 bg-gray-50 p-3 rounded-lg border border-gray-100">
+            <p class="text-sm text-gray-600 flex items-center leading-loose">
+                <span class="mr-3 text-blue-500">
+                    <!-- Ikon Address dari Heroicons -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2"></path>
+                    </svg>
+                </span>
+                Alamat: <span class="font-mono text-blue-500 ml-1 tracking-wide truncate">0x123...abc</span>
             </p>
         </div>
 
         <!-- Tombol dan Indikator -->
         <div class="mt-6 flex items-center space-x-4">
-            <button id="connect-metamask" class="relative bg-light-blue text-[#001125] px-5 py-2 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-300 hover:bg-light-blue/90 hover:shadow-[0_0_15px_rgba(42,157,244,0.7)]">
+            <button id="connect-metamask" class="relative bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-sm tracking-wider leading-relaxed transition-all duration-300 hover:bg-blue-700 hover:ring-2 hover:ring-blue-200 hover:ring-opacity-50">
                 Hubungkan Wallet
-                <span class="absolute inset-0 rounded-full border border-light-blue/50 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
             </button>
-            <span id="wallet-indicator" class="h-3 w-3 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" title="Wallet belum terkoneksi"></span>
+            <span id="wallet-indicator" class="h-2.5 w-2.5 bg-red-400 rounded-full ring-2 ring-red-200" title="Wallet belum terkoneksi"></span>
         </div>
-
-        <!-- Elemen Dekoratif Futuristik -->
-        <div class="absolute top-0 left-0 h-1 w-20 bg-gradient-to-r from-transparent via-light-blue to-transparent opacity-50"></div>
-        <div class="absolute bottom-0 right-0 h-32 w-32 bg-light-blue rounded-full opacity-10 -mr-16 -mb-16 transform scale-150"></div>
     </div>
 </div>
 
 <!-- Grafik Tren Riwayat Pembayaran -->
-<div class="bg-[#001125] border border-light-blue/20 rounded-xl shadow-[0_0_20px_rgba(42,157,244,0.15)] p-6 mb-10 card-hover transition-all duration-500">
-    <div class="relative bg-gradient-to-br from-[#001125] via-[#0a1b33] to-[#1a2a44] rounded-lg p-6 overflow-hidden">
-        <h2 class="text-2xl font-bold text-sky-blue mb-6 tracking-wider uppercase drop-shadow-md">Tren Riwayat Pembayaran</h2>
+<div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 mb-10 card-hover transition-all duration-300 hover:shadow-md">
+    <div class="relative bg-white rounded-lg p-6 overflow-hidden">
+        <div class="flex items-center mb-6">
+            <span class="mr-3 text-blue-500">
+                <!-- Ikon Chart dari Heroicons -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4v17h16"></path>
+                </svg>
+            </span>
+            <h2 class="text-2xl font-semibold text-gray-900 tracking-wide leading-relaxed">Tren Riwayat Pembayaran</h2>
+        </div>
         <canvas id="paymentTrendChart" class="w-full h-80"></canvas>
-        <!-- Elemen Dekoratif -->
-        <div class="absolute top-0 left-0 h-1 w-24 bg-gradient-to-r from-transparent via-light-blue to-transparent opacity-50"></div>
-        <div class="absolute bottom-0 right-0 h-32 w-32 bg-light-blue rounded-full opacity-10 -mr-16 -mb-16 transform scale-150"></div>
     </div>
 </div>
 
 <!-- Card Horizontal -->
 <div class="grid grid-cols-2 gap-6 mb-10">
     <!-- Card Status Pinjaman -->
-    <div class="bg-[#001125] border border-light-blue/20 rounded-xl shadow-[0_0_20px_rgba(42,157,244,0.15)] p-6 card-hover transition-all duration-500">
-        <div class="relative bg-gradient-to-br from-[#001125] via-[#0a1b33] to-[#1a2a44] rounded-lg p-6 overflow-hidden">
+    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 card-hover transition-all duration-300 hover:shadow-md">
+        <div class="relative bg-white rounded-lg p-6 overflow-hidden">
             <!-- Header Card -->
             <div class="flex items-center space-x-4 mb-4">
-                <i class="fas fa-money-bill-wave text-3xl text-sky-blue filter drop-shadow-[0_0_8px_rgba(42,157,244,0.5)]"></i>
+                <span class="text-blue-500">
+                    <!-- Ikon Money dari Heroicons -->
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </span>
                 <div>
-                    <h3 class="text-sm font-bold text-sky-blue tracking-wider uppercase drop-shadow-md">Pinjaman Saya</h3>
-                    <p class="text-2xl font-extrabold text-light-blue mt-1">Rp {{ number_format(5000000, 0, ',', '.') }}</p>
+                    <h3 class="text-sm font-semibold text-gray-900 tracking-wide">Pinjaman Saya</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">Rp {{ number_format(5000000, 0, ',', '.') }}</p>
                 </div>
             </div>
 
             <!-- Detail -->
             <div class="mt-2 space-y-3">
-                <p class="text-sky-blue text-sm flex items-center">
-                    <span class="mr-2 text-light-blue"><i class="fas fa-money-check-alt"></i></span>
+                <p class="text-gray-600 text-sm flex items-center">
+                    <span class="mr-2 text-blue-500">
+                        <!-- Ikon Credit Card dari Heroicons -->
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                        </svg>
+                    </span>
                     Cicilan Berikutnya:
-                    <span class="text-light-blue font-semibold ml-1">Rp {{ number_format(1000000, 0, ',', '.') }}</span>
-                    <span class="text-gray-400 ml-1">- 5 Apr 2025</span>
+                    <span class="text-blue-500 font-medium ml-1">Rp {{ number_format(1000000, 0, ',', '.') }}</span>
+                    <span class="text-gray-500 ml-1">- 5 Apr 2025</span>
                 </p>
-                <p class="text-sky-blue text-sm flex items-center">
-                    <span class="mr-2 text-light-blue"><i class="fas fa-circle-notch"></i></span>
+                <p class="text-gray-600 text-sm flex items-center">
+                    <span class="mr-2 text-blue-500">
+                        <!-- Ikon Check Circle dari Heroicons -->
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </span>
                     Status:
-                    <span class="inline-block bg-green-500/20 text-green-300 text-xs font-semibold px-3 py-1 rounded-full ml-2 shadow-[0_0_10px_rgba(34,197,94,0.5)]">
+                    <span class="inline-block bg-green-100 text-green-700 text-xs font-medium px-2.5 py-1 rounded-full ml-2">
                         Aktif
                     </span>
                 </p>
@@ -95,113 +120,134 @@
 
             <!-- Action Buttons -->
             <div class="mt-6 flex items-center space-x-4">
-                <button class="relative bg-light-blue text-[#001125] px-5 py-2 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-300 hover:bg-light-blue/90 hover:shadow-[0_0_15px_rgba(42,157,244,0.7)]">
+                <button class="bg-blue-500 text-white px-5 py-2 rounded-lg font-medium text-sm tracking-wide transition-all duration-300 hover:bg-blue-600 hover:ring-2 hover:ring-blue-200 hover:ring-opacity-50">
                     Bayar Cicilan
-                    <span class="absolute inset-0 rounded-full border border-light-blue/50 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
                 </button>
-                <a href="#" class="relative text-sky-blue text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:text-light-blue group">
+                <a href="#" class="relative text-blue-500 text-sm font-medium tracking-wide transition-all duration-300 hover:text-blue-600 group">
                     Lihat Detail
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-light-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
             </div>
-
-            <!-- Elemen Dekoratif -->
-            <div class="absolute top-0 left-0 h-1 w-20 bg-gradient-to-r from-transparent via-light-blue to-transparent opacity-50"></div>
-            <div class="absolute bottom-0 right-0 h-24 w-24 bg-light-blue rounded-full opacity-10 -mr-12 -mb-12 transform scale-150"></div>
         </div>
     </div>
 
     <!-- Card Status Pengajuan -->
-    <div class="bg-[#001125] border border-light-blue/20 rounded-xl shadow-[0_0_20px_rgba(42,157,244,0.15)] p-6 card-hover transition-all duration-500">
-        <div class="relative bg-gradient-to-br from-[#001125] via-[#0a1b33] to-[#1a2a44] rounded-lg p-6 overflow-hidden">
+    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 card-hover transition-all duration-300 hover:shadow-md">
+        <div class="relative bg-white rounded-lg p-6 overflow-hidden">
             <!-- Header Card -->
             <div class="flex items-center space-x-4 mb-4">
-                <i class="fas fa-file-alt text-3xl text-sky-blue filter drop-shadow-[0_0_8px_rgba(42,157,244,0.5)]"></i>
+                <span class="text-blue-500">
+                    <!-- Ikon Document dari Heroicons -->
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </span>
                 <div>
-                    <h3 class="text-sm font-bold text-sky-blue tracking-wider uppercase drop-shadow-md">Pengajuan Pinjaman</h3>
-                    <p class="text-2xl font-extrabold text-light-blue mt-1">Rp {{ number_format(10000000, 0, ',', '.') }}</p>
+                    <h3 class="text-sm font-semibold text-gray-900 tracking-wide">Pengajuan Pinjaman</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">Rp {{ number_format(10000000, 0, ',', '.') }}</p>
                 </div>
             </div>
 
             <!-- Detail -->
             <div class="mt-2 space-y-3">
-                <p class="text-sky-blue text-sm flex items-center">
-                    <span class="mr-2 text-light-blue"><i class="fas fa-hourglass-half"></i></span>
+                <p class="text-gray-600 text-sm flex items-center">
+                    <span class="mr-2 text-blue-500">
+                        <!-- Ikon Clock dari Heroicons -->
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </span>
                     Status:
-                    <span class="inline-block bg-yellow-500/20 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full ml-2 shadow-[0_0_10px_rgba(234,179,8,0.5)]">
+                    <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-medium px-2.5 py-1 rounded-full ml-2">
                         Menunggu
                     </span>
                 </p>
-                <p class="text-sky-blue text-sm flex items-center">
-                    <span class="mr-2 text-light-blue"><i class="fas fa-calendar-alt"></i></span>
-                    Jangka Waktu: <span class="text-light-blue font-semibold ml-1">12 Bulan</span>
+                <p class="text-gray-600 text-sm flex items-center">
+                    <span class="mr-2 text-blue-500">
+                        <!-- Ikon Calendar dari Heroicons -->
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </span>
+                    Jangka Waktu: <span class="text-blue-500 font-medium ml-1">12 Bulan</span>
                 </p>
             </div>
 
             <!-- Action Link -->
             <div class="mt-6">
-                <a href="#" class="relative text-sky-blue text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:text-light-blue group">
+                <a href="#" class="relative text-blue-500 text-sm font-medium tracking-wide transition-all duration-300 hover:text-blue-600 group">
                     Lihat Status
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-light-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
             </div>
-
-            <!-- Elemen Dekoratif -->
-            <div class="absolute top-0 left-0 h-1 w-20 bg-gradient-to-r from-transparent via-light-blue to-transparent opacity-50"></div>
-            <div class="absolute bottom-0 right-0 h-24 w-24 bg-light-blue rounded-full opacity-10 -mr-12 -mb-12 transform scale-150"></div>
         </div>
     </div>
 </div>
 
 <!-- Tabel Riwayat Pembayaran -->
-<div class="bg-[#001125] border border-light-blue/20 rounded-xl shadow-[0_0_20px_rgba(42,157,244,0.15)] p-6 transition-all duration-500 card-hover">
-    <div class="relative bg-gradient-to-br from-[#001125] via-[#0a1b33] to-[#1a2a44] rounded-lg p-6 overflow-hidden">
+<div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 transition-all duration-300 card-hover hover:shadow-md">
+    <div class="relative bg-white rounded-lg p-6 overflow-hidden">
         <!-- Header -->
-        <h2 class="text-xl font-bold text-sky-blue mb-6 tracking-wider uppercase drop-shadow-md">Riwayat Pembayaran</h2>
+        <h2 class="text-xl font-semibold text-gray-900 mb-6 tracking-wide leading-relaxed">Riwayat Pembayaran</h2>
 
         <!-- Tabel -->
         <div class="overflow-x-auto">
-            <table class="w-full text-sky-blue text-sm">
+            <table class="w-full text-gray-700 text-sm">
                 <thead>
-                    <tr class="bg-light-blue/10 text-[#D0EFFF] shadow-[0_2px_10px_rgba(42,157,244,0.2)]">
-                        <th class="px-6 py-4 text-left rounded-tl-lg font-semibold uppercase tracking-wide">Tanggal</th>
-                        <th class="px-6 py-4 text-left font-semibold uppercase tracking-wide">Nominal</th>
-                        <th class="px-6 py-4 text-left rounded-tr-lg font-semibold uppercase tracking-wide">Status</th>
+                    <tr class="bg-gray-50 text-gray-900">
+                        <th class="px-6 py-4 text-left rounded-tl-lg font-medium tracking-wide">Tanggal</th>
+                        <th class="px-6 py-4 text-left font-medium tracking-wide">Nominal</th>
+                        <th class="px-6 py-4 text-left rounded-tr-lg font-medium tracking-wide">Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-b border-light-blue/10 hover:bg-light-blue/20 transition-all duration-300">
+                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-all duration-200">
                         <td class="px-6 py-4 flex items-center">
-                            <i class="fas fa-calendar-day mr-2 text-light-blue"></i>
+                            <span class="mr-2 text-blue-500">
+                                <!-- Ikon Calendar dari Heroicons -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </span>
                             1 Mar 2025
                         </td>
-                        <td class="px-6 py-4 font-mono">Rp {{ number_format(1000000, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 font-mono text-gray-800">Rp {{ number_format(1000000, 0, ',', '.') }}</td>
                         <td class="px-6 py-4">
-                            <span class="inline-block bg-green-500/20 text-green-300 text-xs font-semibold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)]">
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-medium px-2.5 py-1 rounded-full">
                                 Lunas
                             </span>
                         </td>
                     </tr>
-                    <tr class="border-b border-light-blue/10 hover:bg-light-blue/20 transition-all duration-300">
+                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-all duration-200">
                         <td class="px-6 py-4 flex items-center">
-                            <i class="fas fa-calendar-day mr-2 text-light-blue"></i>
+                            <span class="mr-2 text-blue-500">
+                                <!-- Ikon Calendar dari Heroicons -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </span>
                             1 Feb 2025
                         </td>
-                        <td class="px-6 py-4 font-mono">Rp {{ number_format(1000000, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 font-mono text-gray-800">Rp {{ number_format(1000000, 0, ',', '.') }}</td>
                         <td class="px-6 py-4">
-                            <span class="inline-block bg-green-500/20 text-green-300 text-xs font-semibold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)]">
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-medium px-2.5 py-1 rounded-full">
                                 Lunas
                             </span>
                         </td>
                     </tr>
-                    <tr class="hover:bg-light-blue/20 transition-all duration-300">
+                    <tr class="hover:bg-gray-50 transition-all duration-200">
                         <td class="px-6 py-4 flex items-center">
-                            <i class="fas fa-calendar-day mr-2 text-light-blue"></i>
+                            <span class="mr-2 text-blue-500">
+                                <!-- Ikon Calendar dari Heroicons -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </span>
                             1 Jan 2025
                         </td>
-                        <td class="px-6 py-4 font-mono">Rp {{ number_format(1000000, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 font-mono text-gray-800">Rp {{ number_format(1000000, 0, ',', '.') }}</td>
                         <td class="px-6 py-4">
-                            <span class="inline-block bg-green-500/20 text-green-300 text-xs font-semibold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)]">
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-medium px-2.5 py-1 rounded-full">
                                 Lunas
                             </span>
                         </td>
@@ -212,19 +258,15 @@
 
         <!-- Action Links -->
         <div class="mt-6 flex items-center space-x-6">
-            <a href="#" class="relative text-sky-blue text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:text-light-blue group">
+            <a href="#" class="relative text-blue-500 text-sm font-medium tracking-wide transition-all duration-300 hover:text-blue-600 group">
                 Lihat Semua
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-light-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </a>
-            <a href="#" class="relative text-sky-blue text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:text-light-blue group">
+            <a href="#" class="relative text-blue-500 text-sm font-medium tracking-wide transition-all duration-300 hover:text-blue-600 group">
                 Cetak Laporan (PDF)
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-light-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </a>
         </div>
-
-        <!-- Elemen Dekoratif -->
-        <div class="absolute top-0 left-0 h-1 w-24 bg-gradient-to-r from-transparent via-light-blue to-transparent opacity-50"></div>
-        <div class="absolute bottom-0 right-0 h-32 w-32 bg-light-blue rounded-full opacity-10 -mr-16 -mb-16 transform scale-150"></div>
     </div>
 </div>
 </div>
