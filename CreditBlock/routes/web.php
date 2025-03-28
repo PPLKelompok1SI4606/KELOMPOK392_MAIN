@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\AuthController;
 // use App\Http\Controllers\LoanController;
-// use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardController;
 // use App\Http\Controllers\AdminController;
 // use App\Http\Controllers\ContactController;
 // use App\Http\Controllers\ProfileController;
@@ -29,8 +29,8 @@ Route::get('/', function () {
 
 // // Authenticated User Routes
 // Route::middleware('auth')->group(function () {
-//     // Dashboard
-//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 //     // Loan Application
 //     Route::get('/loan/apply', [LoanController::class, 'showApplicationForm'])->name('loan.apply.form');
