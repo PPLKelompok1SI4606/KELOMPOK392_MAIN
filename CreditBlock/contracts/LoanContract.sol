@@ -1,38 +1,37 @@
-// SPDX-License-Identifier: MIT
+//SPDX-License-Identifier:MIT
 pragma solidity ^0.8.0;
 
-contract LoanContract {
+contract LoanContract{
     address public lender;
     address public borrower;
-    uint256 public amount;
-    uint256 public term; // Dalam bulan
+    uint256 public loanAmount;
+    uint256 public duration;
+    uint256 public interestRate;
+    uint256 public totalRepayment;
     uint256 public startTime;
-    mapping(uint256 => bool) public payments; // Cicilan ke-n lunas atau belum
-    uint256 public totalPayments;
+    bool public isApproved = false;
+    bool public isRepaid = false;
 
-    event PaymentRecorded(uint256 installmentNumber, uint256 timestamp);
-
-    constructor(address _borrower, uint256 _amount, uint256 _term) {
+    constructor(
+        address _borrower, uint256 _loanAmount, uint256 _duration, uint256 _interestRate
+    ){
         lender = msg.sender;
         borrower = _borrower;
-        amount = _amount;
-        term = _term;
+        loanAmount = _loanAmount;
+        duration = _duration;
+        interestRate = _interestRate;
+        totalRepayment = _loanAmount + (_loanAmount * _interestRate / 100);
+    }
+        function approveLoan() public {
+        require(msg.sender == lender, "Hanya lender yang bisa menyetujui");
+        require(!isApproved, "Pinjaman sudah disetujui");
+        isApproved = true;
         startTime = block.timestamp;
-        totalPayments = 0;
     }
-
-    function recordPayment(uint256 installmentNumber) external {
-        require(msg.sender == borrower, "Only borrower can record payment");
-        require(!payments[installmentNumber], "Payment already recorded");
-        require(installmentNumber < term, "Invalid installment number");
-
-        payments[installmentNumber] = true;
-        totalPayments += 1;
-
-        emit PaymentRecorded(installmentNumber, block.timestamp);
-    }
-
-    function isLoanCompleted() public view returns (bool) {
-        return totalPayments == term;
+    function markAsRepaid() public {
+        require(msg.sender == lender, "Hanya lender yang bisa menandai lunas");
+        require(isApproved, "Pinjaman belum disetujui");
+        require(!isRepaid, "Pinjaman sudah lunas");
+        isRepaid = true;
     }
 }

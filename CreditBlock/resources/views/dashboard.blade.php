@@ -30,7 +30,7 @@
                     Saldo: <span class="font-medium text-blue-500 ml-1">0.025 ETH</span>
                 </p>
             </div>
-            <img src="https://metamask.io/images/metamask-logo.png" alt="MetaMask Logo" class="h-9 w-auto transition-transform hover:scale-105">
+            <img src="images/MetaMask-logo.png" alt="MetaMask Logo" class="h-9 w-auto transition-transform hover:scale-105">
         </div>
 
         <!-- Alamat Wallet -->

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\AuthController;
-// use App\Http\Controllers\LoanController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 // use App\Http\Controllers\ContactController;
@@ -29,22 +29,22 @@ Route::get('/', function () {
 
 // // Authenticated User Routes
 // Route::middleware('auth')->group(function () {
-    // Dashboard
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-//     // Loan Application
-//     Route::get('/loan/apply', [LoanController::class, 'showApplicationForm'])->name('loan.apply.form');
-//     Route::post('/loan/apply', [LoanController::class, 'submitApplication'])->name('loan.apply');
-//     Route::get('/loan/status/{id}', [LoanController::class, 'showStatus'])->name('loan.status');
+// Loan Application
+Route::get('/loan/apply', [LoanController::class, 'showApplicationForm'])->name('loan.apply.form');
+Route::post('/loan/apply', [LoanController::class, 'submitApplication'])->name('loan.apply');
+Route::get('/loan/status/{id}', [LoanController::class, 'showStatus'])->name('loan.status');
 
-//     // Upload Supporting Documents
-//     Route::post('/loan/upload-document', [LoanController::class, 'uploadDocument'])->name('loan.upload.document');
+// Upload Supporting Documents
+Route::post('/loan/upload-document', [LoanController::class, 'uploadDocument'])->name('loan.upload.document');
 
-//     // Loan Details and Smart Contract
-//     Route::get('/loan/{id}/details', [LoanController::class, 'showLoanDetails'])->name('loan.details'); // Status pinjaman & Smart Contract info
+// Loan Details and Smart Contract
+Route::get('/loan/{id}/details', [LoanController::class, 'showLoanDetails'])->name('loan.details'); // Status pinjaman & Smart Contract info
 
-//     // Payment
-//     Route::post('/loan/{id}/pay-installment', [LoanController::class, 'payInstallment'])->name('loan.pay.installment');
+// Payment
+Route::post('/loan/{id}/pay-installment', [LoanController::class, 'payInstallment'])->name('loan.pay.installment');
 
 //     // Payment History
 //     Route::get('/payment-history', [DashboardController::class, 'paymentHistory'])->name('payment.history');
@@ -71,7 +71,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 // Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // Daftar pengguna & pinjaman aktif (INI YANG NANTI DIPAKAI KEDEPANNYA)
 Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // Daftar pengguna & pinjaman aktif
 //     Route::get('/users', [AdminController::class, 'listUsers'])->name('admin.users');
-//     Route::get('/loans', [AdminController::class, 'listLoans'])->name('admin.loans');
+Route::get('/loans', [AdminController::class, 'listLoans'])->name('admin.loans');
+Route::post('/loans/{id}/approve', [AdminController::class, 'approveLoan'])->name('admin.loans.approve');
 // });
 
 // // Smart Contract Routes (Sistem mencatat pembayaran, diasumsikan manual)
